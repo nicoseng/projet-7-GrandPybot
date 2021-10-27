@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Pour enlever le problème relatif à favicon.ico -->
+    <link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>GrandPy Bot, le papy robot !</title>
+</head>
+
+<body>
+<div class="main_page container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                    <img class="welcome_logo" src="{{url_for('static', filename='images/papy_logo.png')}}" alt="papy_logo">
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-12 mb-3 text-center">
+                    <h1>GrandPy Bot, le papy-robot !</h1>
+                </div>
+            </div>
+
+            <div class="row text-center bg-warning">
+                <div class="col-sm-12 col-md-12 col-lg-12 mt-3">
+                    <p><label>Boîte de dialogue</label></p>
+                    <div class="dialog_box pb-4" id="result">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row text-center bg-info pb-4">
+                <form action="/" method="post" id="questionForm" class="form container-fluid">
+                    <p>
+                        <label class="pt-4" for="question">Tapez votre question dans le champ ci-dessous</label> :
+                        <input type="text" id="question" name="question" placeholder="Ex: Où se trouve la Tour Eiffel ?" size="100" maxlength="1000" class="col-sm-12 col-md-12 col-lg-12 mt-3 text-center"> 
+                    </p> 
+                   <input type="submit" value="Envoyer" id="send"/>
+                </form>
+            </div>
+
+            <div class="loading_place d-flex justify-content-center">
+                <span class="lettre">C</span>
+                <span class="lettre">H</span>
+                <span class="lettre">A</span>
+                <span class="lettre">R</span>
+                <span class="lettre">G</span>
+                <span class="lettre">E</span>
+                <span class="lettre">M</span>
+                <span class="lettre">E</span>
+                <span class="lettre">N</span>
+                <span class="lettre">T</span>
+
+            </div>
+
+    <p class="papybot_response"></p>
+    <div id="map">
+
+    </div>
+    
+    <div class="result">
+        <p> Adresse : <span class="address"></span></p>
+        <p> Latitude :<span class="latitude"></span></p>
+        <p> Longitude :<span class="longitude"></span></p>
+        <p> Voici ce que je sais de l'endroit que tu cherches :</p><br/><span class="extract"></span>
+    </div>
+
+    <footer>
+        <div class="d-flex">
+            <div class="p-2">Nicolas Sengmany</div>
+        <div class="ml-auto p-2"><a href=" https://github.com/nicoseng/projet-7-GrandPybot">Lien github</a></div>
+        </div>
+    </footer>
+
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANmaO1X1VYn_Vm2K-ffCgI8sN_Ng9qQo4&callback=initMap" async defer>
+    </script>
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
